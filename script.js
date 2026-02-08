@@ -55,3 +55,24 @@ if (savedTasks) {
     document.getElementById("taskList").appendChild(li);
   });
 }
+const toggleThemeBtn = document.getElementById("toggleTheme");
+
+// Carregar tema salvo
+const savedTheme = localStorage.getItem("theme");
+
+if (savedTheme === "dark") {
+  document.body.classList.add("dark");
+  toggleThemeBtn.innerText = "Modo claro";
+}
+
+toggleThemeBtn.onclick = function () {
+  document.body.classList.toggle("dark");
+
+  if (document.body.classList.contains("dark")) {
+    toggleThemeBtn.innerText = "Modo claro";
+    localStorage.setItem("theme", "dark");
+  } else {
+    toggleThemeBtn.innerText = "Modo escuro";
+    localStorage.setItem("theme", "light");
+  }
+};
