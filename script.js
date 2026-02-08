@@ -2,7 +2,10 @@ function saveTasks() {
   const tasks = [];
 
   document.querySelectorAll("li").forEach(li => {
-    tasks.push(li.innerText);
+    tasks.push({
+      text: li.innerText,
+      done: li.classList.contains("done")
+    });
   });
 
   localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -20,8 +23,9 @@ function addTask() {
   const li = document.createElement("li");
   li.innerText = taskText;
 
+  // CLICAR = MARCAR / DESMARCAR
   li.onclick = function () {
-    li.remove();
+    li.classList.toggle("done");
     saveTasks();
   };
 
@@ -31,16 +35,20 @@ function addTask() {
   saveTasks();
 }
 
-/* Carregar tarefas salvas quando o site abre */
+/* Carregar tarefas salvas ao abrir o site */
 const savedTasks = JSON.parse(localStorage.getItem("tasks"));
 
 if (savedTasks) {
   savedTasks.forEach(task => {
     const li = document.createElement("li");
-    li.innerText = task;
+    li.innerText = task.text;
+
+    if (task.done) {
+      li.classList.add("done");
+    }
 
     li.onclick = function () {
-      li.remove();
+      li.classList.toggle("done");
       saveTasks();
     };
 
