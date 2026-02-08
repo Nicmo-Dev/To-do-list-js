@@ -65,3 +65,26 @@ li.done {
   color: gray;
   opacity: 0.7;
 }
+body.dark {
+  background-color: #121212;
+}
+
+body.dark .container {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+body.dark li {
+  background-color: #2a2a2a;
+}
+
+body.dark input,
+body.dark button {
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+body.dark button:hover {
+  background-color: #444;
+}
