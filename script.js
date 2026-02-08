@@ -1,4 +1,3 @@
-console.log("JS carregou");
 function saveTasks() {
   const tasks = [];
 
