@@ -52,27 +52,27 @@ if (savedTasks) {
       saveTasks();
     };
 
-    document.getElementById("taskList").appendChild(li);
-  });
-}
-const toggleThemeBtn = document.getElementById("toggleTheme");
+    document.addEventListener("DOMContentLoaded", function () {
+  const toggleThemeBtn = document.getElementById("toggleTheme");
 
-// Carregar tema salvo
-const savedTheme = localStorage.getItem("theme");
+  if (!toggleThemeBtn) return;
 
-if (savedTheme === "dark") {
-  document.body.classList.add("dark");
-  toggleThemeBtn.innerText = "Modo claro";
-}
+  const savedTheme = localStorage.getItem("theme");
 
-toggleThemeBtn.onclick = function () {
-  document.body.classList.toggle("dark");
-
-  if (document.body.classList.contains("dark")) {
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark");
     toggleThemeBtn.innerText = "Modo claro";
-    localStorage.setItem("theme", "dark");
-  } else {
-    toggleThemeBtn.innerText = "Modo escuro";
-    localStorage.setItem("theme", "light");
   }
-};
+
+  toggleThemeBtn.onclick = function () {
+    document.body.classList.toggle("dark");
+
+    if (document.body.classList.contains("dark")) {
+      toggleThemeBtn.innerText = "Modo claro";
+      localStorage.setItem("theme", "dark");
+    } else {
+      toggleThemeBtn.innerText = "Modo escuro";
+      localStorage.setItem("theme", "light");
+    }
+  };
+});
