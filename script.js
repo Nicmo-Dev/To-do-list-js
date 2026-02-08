@@ -8,7 +8,7 @@ function addTask() {
   }
 
   const li = document.createElement("li");
-  li.textContent = taskText;
+  li.innerText = taskText;
 
   li.onclick = function () {
     li.remove();
