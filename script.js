@@ -35,6 +35,15 @@ function addTask() {
   saveTasks();
 }
 
+// BOTÃO “LIMPA TUDO”
+const clearBtn = document.getElementById("clearAll");
+
+clearBtn.addEventListener("click", () => {
+  const taskList = document.getElementById("taskList");
+  taskList.innerHTML = "";          // limpa todas as tarefas da tela
+  localStorage.removeItem("tasks"); // limpa do localStorage
+});
+
 /* Carregar tarefas salvas ao abrir o site */
 const savedTasks = JSON.parse(localStorage.getItem("tasks"));
 
@@ -52,7 +61,12 @@ if (savedTasks) {
       saveTasks();
     };
 
-    document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("taskList").appendChild(li);
+  });
+}
+
+/* TOGGLE DARK MODE */
+document.addEventListener("DOMContentLoaded", function () {
   const toggleThemeBtn = document.getElementById("toggleTheme");
 
   if (!toggleThemeBtn) return;
