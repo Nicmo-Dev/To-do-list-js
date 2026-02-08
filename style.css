@@ -44,6 +44,20 @@ button:hover {
   background-color: #45a049;
 }
 
+/* Botão Limpa Tudo menor e com espaçamento */
+#clearAll {
+  width: 80%;          /* um pouco menor que os outros botões */
+  padding: 6px;        /* menos padding */
+  font-size: 0.9rem;   /* texto menor */
+  margin: 10px auto 0; /* distância do botão acima e centralizado */
+  display: block;      /* linha própria */
+  background-color: #f44336; /* vermelho pra diferenciar */
+}
+
+#clearAll:hover {
+  background-color: #e53935; /* hover do botão */
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -65,6 +79,8 @@ li.done {
   color: gray;
   opacity: 0.7;
 }
+
+/* Dark mode */
 body.dark {
   background-color: #121212;
 }
@@ -87,4 +103,8 @@ body.dark button {
 
 body.dark button:hover {
   background-color: #444;
+}
+
+#clearAll.dark {
+  background-color: #e53935;
 }
