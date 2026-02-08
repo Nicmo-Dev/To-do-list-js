@@ -24,6 +24,12 @@ input {
   margin-bottom: 10px;
 }
 
+/* Corrige checkbox */
+input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+}
+
 button {
   width: 100%;
   padding: 8px;
@@ -49,7 +55,11 @@ li {
   padding: 8px;
   border-radius: 4px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
+
 li.done {
   text-decoration: line-through;
   color: gray;
